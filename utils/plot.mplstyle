@@ -1,0 +1,26 @@
+legend.frameon: False
+legend.numpoints: 1
+legend.scatterpoints: 1
+xtick.direction: out
+ytick.direction: out
+axes.axisbelow: True
+font.family: sans-serif
+grid.linestyle: -
+lines.solid_capstyle: round
+
+axes.grid: True
+axes.edgecolor: white
+
+
+text.color: 0.9
+axes.labelcolor: 0.9
+xtick.color: 0.9
+ytick.color: 0.9
+grid.color: 2A3459
+
+font.sans-serif: Helvetica, Helvetica Neue, Arial, Liberation Sans, DejaVu Sans, Bitstream Vera Sans, sans-serif
+axes.prop_cycle: cycler('color', ['da1b71', '18c0c4', 'A267F5', 'f3907e', 'ffe46b', 'fefeff'])
+image.cmap: RdPu
+figure.facecolor: 212946
+axes.facecolor: 212946
+savefig.facecolor: 212946
