@@ -49,7 +49,7 @@ class TradeEnv():
         """
         Return the update vector for a given time index.
         """
-        return np.array([1+self.daily_interest_rate]+self.asset_data[-1,:,time_index].tolist())
+        return np.array([1+self.interest_rate]+self.asset_data[-1,:,time_index].tolist())
 
     def initialize_random_seed(self, seed=None):
         """
