@@ -1,0 +1,31 @@
+# problem parameters
+kernel_size: [1, 3]
+
+batch_size: 50 
+train_ratio: 0.6 
+val_ratio: 0.2 
+length_tensor: 10 
+ratio_greedy: 0.8 
+ratio_regul: 0.1 
+
+regularization: 0.00000001
+learning: 0.09 
+trading_cost: 0.0025 
+interest_rate: 0.00008
+cash_bias_init: 0.7 
+
+p_init_train: 10000 
+w_init_train: [1, 0, 0, 0, 0, 0]
+n_episodes: 2
+n_batches: 10
+
+portfolio_init_test: 10000
+w_init_test: [1, 0, 0, 0, 0, 0]
+
+# params
+total_steps_train: 754
+total_steps_val: 251
+number_assets: 5
+sample_bias:  0.00005
+list_stock: ['ETCBTC', 'ETHBTC', 'DOGEBTC', 'ETHUSDT', 'BTCUSDT', 'XRPBTC', 'DASHBTC', 'XMRBTC', 'LTCBTC', 'ETCETH']
+n: 10
