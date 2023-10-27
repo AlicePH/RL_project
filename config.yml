@@ -27,5 +27,6 @@ total_steps_train: 754
 total_steps_val: 251
 number_assets: 5
 sample_bias:  0.00005
-list_stock: ['ETCBTC', 'ETHBTC', 'DOGEBTC', 'ETHUSDT', 'BTCUSDT', 'XRPBTC', 'DASHBTC', 'XMRBTC', 'LTCBTC', 'ETCETH']
-n: 10
+# list_stock: ['ETCBTC', 'ETHBTC', 'ETHUSDT', 'BTCUSDT', 'ETCETH']
+list_stock: ['AMGN', 'ALL', 'CF', 'BBY', 'ABT']
+n: 5
