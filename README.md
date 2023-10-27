@@ -12,6 +12,8 @@ The action is represented as: $\left(w_1, \ldots, w_n\right)$
 
 The state is represented as: $\left(X_t, w_{t-1}\right)$ where prices are $X_t$
 
+Training procedure is Deterministic Policy Gradient with mini-batches.
+
 ## Data
 
 The data for this project can be downloaded from the following links:
