@@ -16,6 +16,7 @@ def calculate_max_drawdown(values):
 # # Function to apply common styles to plots
 def apply_common_styles():
     plt.style.use('./utils/plot.mplstyle')
+    plt.figure(figsize=(9, 6))
 
 
 # Function to evaluate performance
@@ -29,10 +30,10 @@ def evaluate_performance(episode, env_eval, actor, config, save_path=None):
     max_drawdowns = []
 
     # Reset environment
-    state_eval, done_eval = env_eval.reset(config['w_init_test'], config['pf_init_test'], t=config['total_steps_train'])
+    state_eval, done_eval = env_eval.reset(config['w_init_test'], config['portfolio_init_test'], t=config['total_steps_train'])
 
     # Initialize portfolio and weight lists
-    portfolio_values = [config['pf_init_test']]
+    portfolio_values = [config['portfolio_init_test']]
     weights = [config['w_init_test']]
 
     # Iterate over steps
@@ -40,7 +41,7 @@ def evaluate_performance(episode, env_eval, actor, config, save_path=None):
         X_t = state_eval[0].reshape([-1]+ list(state_eval[0].shape))
         previous_weights = state_eval[1].reshape([-1]+ list(state_eval[1].shape))
         previous_portfolio_value = state_eval[2]
-
+        # print(X_t.shape, previous_weights.shape)
         action = actor.compute_W(X_t, previous_weights)
         state_eval, reward_eval, done_eval = env_eval.perform_action(action)
 
@@ -61,33 +62,35 @@ def evaluate_performance(episode, env_eval, actor, config, save_path=None):
     mean_portfolio_values.append(np.mean(portfolio_values))
     max_drawdowns.append(calculate_max_drawdown(portfolio_values))
 
-    # Print results
-    print('End of test PF value:', round(portfolio_values[-1]))
-    print('Min of test PF value:', round(np.min(portfolio_values)))
-    print('Max of test PF value:', round(np.max(portfolio_values)))
-    print('Mean of test PF value:', round(np.mean(portfolio_values)))
-    print('Max Draw Down of test PF value:', round(calculate_max_drawdown(portfolio_values)))
-    print('End of test weights:', weights[-1])
+
+    print(f'Time: {episode} | Portfolio Weights:', weights[-1])
 
     # Plot portfolio evolution
     apply_common_styles()
     plt.title('Portfolio evolution (validation set) episode {}'.format(episode))
     plt.plot(portfolio_values, label='Agent Portfolio Value')
     plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
-    plt.show()
+    # Save figure if path is provided
+    if save_path:
+        plt.savefig(os.path.join(save_path, 'portfolio_evolution_episode_{}.png'.format(episode)), bbox_inches='tight')
+
+    plt.draw()
+    plt.clf()
+
+
+
 
     print("\n")
     
     # Plot portfolio weights
     apply_common_styles()
     plt.title('Portfolio weights (end of validation set) episode {}'.format(episode))
-    plt.bar(np.arange(+1), end_weights[-1])
-    plt.xticks(np.arange(config['nb_stocks']+6), ['Money'] + config['list_stock'], rotation=45)
+    plt.bar(np.arange(config['number_assets']+1), weights[-1])
+    plt.xticks(np.arange(config['number_assets']+1), ['Money'] + config['list_stock'].tolist(), rotation=45)
 
     # Save figure if path is provided
     if save_path:
-        plt.savefig(os.path.join(save_path, 'portfolio_weights_episode_{}.png'.format(episode)))
+        plt.savefig(os.path.join(save_path, 'portfolio_weights_episode_{}.png'.format(episode)), bbox_inches='tight')
 
-    plt.show()
-
-
+    plt.draw()
+    plt.clf()
