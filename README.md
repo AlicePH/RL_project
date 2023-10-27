@@ -1,7 +1,7 @@
 # RL_project
 
 ## Data
-download data in folder data in .npy format and name in input.npy
+download data in folder data in .npy format and name it input.npy
 
 ## Environment Set Up
 pip install -r requirements.txt
