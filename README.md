@@ -8,3 +8,5 @@ python experiment.py
 
 ## Start an Experiment with Analisis
 python experiment.py --vis-analysis True
+
+## Check the results in assets
