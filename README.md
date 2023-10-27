@@ -14,9 +14,7 @@ The state is represented as: $\left(X_t, w_{t-1}\right)$ where prices are $X_t$
 
 The reward function is defined as:
 
-$$
-R\left(\boldsymbol{s}_{1}, \boldsymbol{a}_{1}, \cdots, \boldsymbol{s}_{t_{\mathrm{f}}}, \boldsymbol{a}_{t_{\mathrm{f}}}, \boldsymbol{s}_{t_{\mathrm{f}}+1}\right) & :=\frac{1}{t_{\mathrm{f}}} \ln \frac{p_{\mathrm{f}}}{p_{0}}=\frac{1}{t_{\mathrm{f}}} \sum_{t=1}^{t_{\mathrm{f}}+1} r_{t} .
-$$
+$R\left(\boldsymbol{s}_{1}, \boldsymbol{a}_{1}, \cdots, \boldsymbol{s}_{t_{\mathrm{f}}}, \boldsymbol{a}_{t_{\mathrm{f}}}, \boldsymbol{s}_{t_{\mathrm{f}}+1}\right) & :=\frac{1}{t_{\mathrm{f}}} \ln \frac{p_{\mathrm{f}}}{p_{0}}=\frac{1}{t_{\mathrm{f}}} \sum_{t=1}^{t_{\mathrm{f}}+1} r_{t}$
 
 ## Data
 
