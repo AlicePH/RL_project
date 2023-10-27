@@ -407,7 +407,7 @@ if __name__ == '__main__':
         plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
 
 
-        plt.savefig(os.path.join(os.getcwd(), "assets", "analysis", 'portfolio_value.png'))
+        plt.savefig(os.path.join(os.getcwd(), "assets", "analysis", 'portfolio_value.png'), bbox_inches='tight')
         plt.draw()
 
 
@@ -422,12 +422,12 @@ if __name__ == '__main__':
 
 
 
-        plt.savefig(os.path.join(os.getcwd(), "assets", "analysis", 'Weight_evolution_during_testing.png'))
+        plt.savefig(os.path.join(os.getcwd(), "assets", "analysis", 'Weight_evolution_during_testing.png'), bbox_inches='tight')
         plt.draw()
 
         plt.plot(np.array(p_list)-np.array(p_list_eq))
 
-        plt.savefig(os.path.join(os.getcwd(), "assets", "analysis", 'something.png'))
+        plt.savefig(os.path.join(os.getcwd(), "assets", "analysis", 'something.png'), bbox_inches='tight')
         plt.draw()
 
 
@@ -438,7 +438,7 @@ if __name__ == '__main__':
         plt.plot(final_portfolio_eq[index1:index2], label = 'Baseline Portfolio Value')
         plt.plot(final_portfolio_s[index1:index2], label = 'Secured Portfolio Value')
 
-        plt.savefig(os.path.join(os.getcwd(), "assets", "analysis", 'results.png'))
+        plt.savefig(os.path.join(os.getcwd(), "assets", "analysis", 'results.png'), bbox_inches='tight')
 
         plt.legend()
         plt.draw()
