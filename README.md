@@ -43,9 +43,7 @@ python experiment.py --vis-analysis True
 
 ## Results
 
-![image]('https://github.com/AlicePH/RL_project/blob/main/assets/train/portfolio_weights_episode_Before Training.png')
-![image]('https://github.com/AlicePH/RL_project/blob/main/assets/train/portfolio_weights_episode_0.png')
-
+![image](https://github.com/AlicePH/RL_project/blob/main/assets/train/portfolio_weights_episode_1.png)
 ![image](https://github.com/AlicePH/RL_project/blob/main/assets/analysis/portfolio_value.png)
 
 You can check the results of your experiments in the `assets` folder.
