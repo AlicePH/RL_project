@@ -11,8 +11,11 @@ The environment is represented by the prices of all orders throughout the market
 The action is represented as: $\left(w_1, \ldots, w_n\right)$ 
 
 The state is represented as: $\left(X_t, w_{t-1}\right)$ where prices are $X_t$
+Reward function: $ R\left(\boldsymbol{s}_{1}, \boldsymbol{a}_{1}, \cdots, \boldsymbol{s}_{t_{\mathrm{f}}}, \boldsymbol{a}_{t_{\mathrm{f}}}, \boldsymbol{s}_{t_{\mathrm{f}}+1}\right) & :=\frac{1}{t_{\mathrm{f}}} \ln \frac{p_{\mathrm{f}}}{p_{0}}=\frac{1}{t_{\mathrm{f}}} \sum_{t=1}^{t_{\mathrm{f}}+1} r_{t} .$
 
 Training procedure is Deterministic Policy Gradient with mini-batches.
+
+Portfolio-Vector Memory stores the network outputs: stacks of portfolio vectors chronologically, initializes uniform weights before any network training. Each training step, a policy network loads the portfolio vector of the previous period from the memory location at t-1, and overwrites the memory at t with its output. During training the values in the memory converge.
 
 ## Data
 
